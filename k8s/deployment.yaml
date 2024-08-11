@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kodecamp-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: kodecamp-app
+  template:
+    metadata:
+      labels:
+        app: kodecamp-app
+    spec:
+      containers:
+      - name: kodecamp-app
+        image: mabirhire1/kodecamp-app:latest
+        ports:
+        - containerPort: 5000
