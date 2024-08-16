@@ -34,9 +34,15 @@ Docker Hub URL: https://hub.docker.com/r/mabirhire1/kodecamp-app:latest
    
 **Step 3:** Set Up Terraform for EC2 and Minikube
   - Create Terraform Modules:
+  - Use terraform init, plan and apply to deploy minikube to AWS
+
+ ![Minikube Instance](Markdown/MinikiubeInstance.JPG) 
 
 **Step 4:** Access the Minikube Cluster
   - SSH into EC2 Instance:
+  - Use private key to ssh into running  EC2 instance
+
+![Establishing Connection](Markdown/ec2-instance.JPG)
 
 **Step 5:** Automate Deployment with GitHub Actions
   - Update GitHub Actions Workflow:
