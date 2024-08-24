@@ -37,4 +37,3 @@ jobs:
         ssh -o StrictHostKeyChecking=no ubuntu@${{ secrets.EC2_PUBLIC_IP }} << 'EOF'
         #kubectl apply -f ./.github/main/k8s/deployment.yaml 
         EOF
-        EOF
