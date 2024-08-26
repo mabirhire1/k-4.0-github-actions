@@ -35,5 +35,5 @@ jobs:
     - name: Deploy to Kubernetes
       run: |
         ssh -o StrictHostKeyChecking=no ubuntu@${{ secrets.EC2_PUBLIC_IP }} << 'EOF'
-        #kubectl apply -f ./.github/main/k8s/deployment.yaml 
+        kubectl apply -f ./.github/main/k8s/deployment.yaml 
         EOF
