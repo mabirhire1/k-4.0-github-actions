@@ -31,16 +31,16 @@ jobs:
       uses: webfactory/ssh-agent@v0.5.3
       with:
         ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
-
+    
     - name: Checkout code
       uses: actions/checkout@v3
 
     - name: Copy deployment file to remote server
       run: |
-        scp -o StrictHostKeyChecking=no ./.github/main/k8s/deployment.yaml ubuntu@${{ secrets.EC2_PUBLIC_IP }}:/home/ubuntu/deployment.yaml
+        scp -o StrictHostKeyChecking=no ${GITHUB_WORKSPACE}/.github/main/k8s/deployment.yaml ubuntu@${{ secrets.EC2_PUBLIC_IP }}:/home/ubuntu/deployment.yaml
 
     - name: Deploy to Kubernetes
       run: |
-        ssh -o StrictHostKeyChecking=no ubuntu@${{ secrets.EC2_PUBLIC_IP }} "kubectl apply -f /home/ubuntu/deployment.yaml"    
-   
+        ssh -o StrictHostKeyChecking=no ubuntu@${{ secrets.EC2_PUBLIC_IP }} "kubectl apply -f /home/ubuntu/deployment.yaml"
     
+       
