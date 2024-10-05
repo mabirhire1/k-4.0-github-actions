@@ -37,6 +37,7 @@ jobs:
 
     - name: Copy deployment file to remote server
       run: |
+        echo ${GITHUB_WORKSPACE}/.github/main/k8s/deployment.yaml
         scp -o StrictHostKeyChecking=no ${GITHUB_WORKSPACE}/.github/main/k8s/deployment.yaml ubuntu@${{ secrets.EC2_PUBLIC_IP }}:/home/ubuntu/deployment.yaml
 
     - name: Deploy to Kubernetes
